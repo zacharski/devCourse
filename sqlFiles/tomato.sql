@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS actors (
   firstname varchar(25) NOT NULL,
   role varchar(50) NOT NULL,
   movie varchar(50) NOT NULL,
-  year int NOT NULL,
+  year int,
   PRIMARY KEY (id)
 )  ;
 
@@ -65,4 +65,6 @@ INSERT INTO actors (lastname, firstname, role, movie, year) VALUES
 ( 'Paltrow', 'Gwyneth', 'Beth Emhoff', 'Contagion', 2011),
 ( 'Paltrow', 'Gwyneth', 'Virginia "Pepper" Potts', 'Iron Man', 2008),
 ('Stuart', 'Katie', 'Kitty Pryde', 'X2: X-Men United', 2003),
-('Stewart', 'Patrick', 'Professor Xavier', 'X2: X-Men United', 2003);
+('Stewart', 'Patrick', 'Professor Xavier', 'X2: X-Men United', 2003)
+('Larson', 'Brie', 'Carol Danvers/Captain Marvel', 'Captain Marvel', NULL ),
+('Jackson', 'Samuel', 'Nick Fury', 'Captain Marvel', NULL);
