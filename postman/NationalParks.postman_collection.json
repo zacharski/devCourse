@@ -1,0 +1,608 @@
+{
+	"info": {
+		"_postman_id": "4acd9dcb-4ab2-4251-923a-1d5bb918ac71",
+		"name": "NationalParks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Apache Creek",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15827346-8995-46ab-a119-03d981b160e3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check Status\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('ok');",
+							"});",
+							"",
+							"pm.test(\"Check Result\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results.name).to.eql('Apache Creek');",
+							"    pm.expect(jsonData.results.closest_town).to.eql('Reserve, NM');",
+							"   ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/info?q=Apache Creek",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Apache Creek"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Piñon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15827346-8995-46ab-a119-03d981b160e3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check Status\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('ok');",
+							"});",
+							"",
+							"pm.test(\"Check Result\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results.name).to.eql('Piñon');",
+							"    pm.expect(jsonData.results.closest_town).to.eql('Quemado, NM');",
+							"   ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/info?q=Piñon",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Piñon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Taylor's Railroad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15827346-8995-46ab-a119-03d981b160e3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check Status\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('ok');",
+							"});",
+							"",
+							"pm.test(\"Check Result\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results.name).to.eql(\"Taylor's Railroad\");",
+							"    pm.expect(jsonData.results.closest_town).to.eql('Mimbres, NM');",
+							"   ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/info?q=Taylor's Railroad",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Taylor's Railroad"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "info for non-existent campground",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15827346-8995-46ab-a119-03d981b160e3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check Status\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('not found');",
+							"});",
+							"",
+							"pm.test(\"Check Result\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.searchTerm).to.eql('Smokey Bear');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/info?q=Smokey Bear",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Smokey Bear"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Near Ruidoso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6c7835d9-3c49-4eb2-ba81-d77468f3da96",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('ok');",
+							"});",
+							"",
+							"pm.test(\"Result Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.city).to.eql(\"Ruidoso, NM\");",
+							"    });",
+							"    ",
+							"const results = pm.response.json();",
+							"",
+							"tests[\"Three Rivers Test\"] = results.result.campgrounds.includes(\"Three Rivers\");",
+							"",
+							"tests[\"South Fork\"] = results.result.campgrounds.includes(\"South Fork\");   ",
+							"",
+							"tests[\"Oak Grove\"] = results.result.campgrounds.includes(\"Oak Grove\");   "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/near?city=Ruidoso, NM",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"near"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Ruidoso, NM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Near Doña Ana, NM",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6c7835d9-3c49-4eb2-ba81-d77468f3da96",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('ok');",
+							"});",
+							"",
+							"pm.test(\"Result Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.city).to.eql(\"Doña Ana, NM\");",
+							"    });",
+							"    ",
+							"const results = pm.response.json();",
+							"",
+							"tests[\"James Canyon\"] = results.result.campgrounds.includes(\"James Canyon\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/near?city=Doña Ana, NM",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"near"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Doña Ana, NM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Near Eagle's Point",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6c7835d9-3c49-4eb2-ba81-d77468f3da96",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('ok');",
+							"});",
+							"",
+							"pm.test(\"Result Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.city).to.eql(\"Eagle's Point, NM\");",
+							"    });",
+							"    ",
+							"const results = pm.response.json();",
+							"",
+							"tests[\"Baca\"] = results.result.campgrounds.includes(\"Baca\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/near?city=Eagle's Point, NM",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"near"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Eagle's Point, NM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "near non-existent city",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6c7835d9-3c49-4eb2-ba81-d77468f3da96",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('not found');",
+							"});",
+							"",
+							"pm.test(\"searchTerm Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.searchTerm).to.eql(\"Silver City, NM\");",
+							"    });",
+							"  "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/near?city=Silver City, NM",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"near"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Silver City, NM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Scorpion Ridge",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b18f636-1dfe-4495-87a4-c21b4af15fa1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('ok');",
+							"});",
+							"",
+							"pm.test(\"Result Value Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results.city).to.eql('Mimbres, NM');",
+							"    pm.expect(jsonData.results.campground).to.eql(\"Scorpion's Ridge\");",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Scorpion's Ridge",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Mimbres, NM",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Upper Scorpion Campground are the nearest campgrounds to the Gila Cliff Dwellings National Monument.\n\nThe Gila River runs nearby the campgrounds and is home to an abundance of wildlife.  This is a good campground for tent and car camping.  This campground is not conducive to RV camping.",
+							"type": "text"
+						},
+						{
+							"key": "toilets",
+							"value": "Vault (2)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/add",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check database add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15827346-8995-46ab-a119-03d981b160e3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check Status\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('ok');",
+							"});",
+							"",
+							"pm.test(\"Check Result\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results.name).to.eql(\"Scorpion's Ridge\");",
+							"    pm.expect(jsonData.results.closest_town).to.eql('Mimbres, NM');",
+							"   ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/info?q=Scorpion's Ridge",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"info"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Scorpion's Ridge"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Scorpion Ridge Duplicate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b18f636-1dfe-4495-87a4-c21b4af15fa1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql('not added: duplicate entry');",
+							"});",
+							"",
+							"pm.test(\"Campground Check\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.campground).to.eql(\"Scorpion's Ridge\");",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Scorpion's Ridge",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Mimbres, NM",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Upper Scorpion Campground are the nearest campgrounds to the Gila Cliff Dwellings National Monument.\n\nThe Gila River runs nearby the campgrounds and is home to an abundance of wildlife.  This is a good campground for tent and car camping.  This campground is not conducive to RV camping.",
+							"type": "text"
+						},
+						{
+							"key": "toilets",
+							"value": "Vault (2)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/add",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
